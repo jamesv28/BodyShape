@@ -3,12 +3,9 @@ import SwiftUI
 struct DashboardView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            IconRight(imageName: "circle.grid.cross.fill", angle: 45)
+            Spacer()
         }
-        .padding()
     }
 }
 
