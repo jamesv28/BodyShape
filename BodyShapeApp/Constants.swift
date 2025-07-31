@@ -3,4 +3,5 @@ import SwiftUI
 
 let lightGreen = Color("LightGreen")
 let lightPurple = Color("LightPurple")
-//let jakartaSans = .font(.custom("PlusJakartaSans-Regular"))
+let screenWidth = UIScreen.main.bounds.width
+let screenHeight = UIScreen.main.bounds.height
