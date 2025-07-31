@@ -61,34 +61,40 @@ struct DataSummaryView: View {
                 }
                 .frame(height: geometry.size.width * (1 - percent1) - delta)
                 
+                // second row
                 HStack(spacing: 15) {
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(lightPurple)
-                        .frame(width: geometry.size.width * percent1 - delta)
+                        .fill(.black)
+                        .frame(width: geometry.size.width * percent2 - delta, height: geometry.size.width * percent2 - delta)
                         .overlay(
-                            VStack {
-                                HStack {
-                                    Image(systemName: "fork.knife")
-                                        .foregroundStyle(.black)
-                                        .padding()
-                                        .background(.white)
-                                        .clipShape(Circle())
-                                    Text("36%")
-                                    Image(systemName: arrow)
-                                }
-                                HStack(alignment: .bottom) {
-                                    Text(calories)
-                                        .font(.title2)
-                                        .fontWeight(.bold)
-                                    Text("Calories")
-                                        .font(.subheadline)
+                            Text("Start")
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            
+                        )
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(.black, lineWidth: 1)
+                        .overlay(
+                            VStack(alignment: .leading) {
+                                Text("Members")
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                HStack(spacing: -10) {
+                                    let extraPeople = min(peopleImages.count, 2)
+                                    let cirleDim = 45.0
+                                    ForEach(0..<extraPeople, id: \.self) { i in
+                                        Circle()
+                                            .frame(width: cirleDim)
+                                    }
+                                    if peopleImages.count > 2 {
+                                        Text("\(peopleImages.count - extraPeople)")
+                                    }
                                     
                                 }
                             }
-                            
-                        )
+                            )
                 }
-
+                .frame(height: geometry.size.width * (1 - percent1) - delta)
             }  // end of top level VStack
         }
     }
