@@ -14,6 +14,7 @@ struct DashboardView: View {
                 WelcomMessageView(
                     userName: "James"
                 )
+                WeightView(weight: 123, weightUnits: "lbs")
             }
             Spacer()
         }
