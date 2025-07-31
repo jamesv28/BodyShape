@@ -15,6 +15,12 @@ struct DashboardView: View {
                     userName: "James"
                 )
                 WeightView(weight: 123, weightUnits: "lbs")
+                
+                DataSummaryView(arrow: "arrow.down", calories: "4.566")
+                
+                Spacer()
+                
+                ButtonsView()
             }
             Spacer()
         }
