@@ -83,11 +83,10 @@ struct DataSummaryView: View {
                                     let extraPeople = min(peopleImages.count, 2)
                                     let cirleDim = 45.0
                                     ForEach(0..<extraPeople, id: \.self) { i in
-                                        Circle()
-                                            .frame(width: cirleDim)
+                                        CircleImageView(imgName: peopleImages[i], color: .white, size: cirleDim, lineWidth: 1)
                                     }
                                     if peopleImages.count > 2 {
-                                        Text("\(peopleImages.count - extraPeople)")
+                                        CircleCountView(count: 8, size: cirleDim, color: .black, lineWidth: 1)
                                     }
                                     
                                 }
