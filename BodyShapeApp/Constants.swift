@@ -11,3 +11,5 @@ let person2 = "person2"
 let person3 = "person3"
 let person4 = "person4"
 
+
+let bikeImage = "Bike Image"
