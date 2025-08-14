@@ -12,17 +12,24 @@ struct CalendarDatView: View {
     let isSelected: Bool
     let height: CGFloat
     let day: String
-    let amo0unt: Int
+    let amount: Int
     let offsetY: CGFloat
     let circleDim = 8.0
+    let delta = 10.0
     var selectedWeightUnits: String = "lbs"
     
     var body: some View {
         VStack(spacing: 0) {
             if isSelected {
-                Text("Selected")
+                HStack(spacing: 3) {
+                    Text("\(amount)")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    Text("\(selectedWeightUnits)")
+                    
+                }
+                .padding(.vertical, 30)
             }
-            GeometryReader { geometry in
                 ZStack(alignment: .bottom) {
                     Rectangle()
                     .stroke(lineWidth: 0.5)
@@ -30,13 +37,12 @@ struct CalendarDatView: View {
                 
                 ZStack {
                     if isSelected {
-                        Text("is selectyed")
+                        
                     }
                     Circle()
                         .frame(width: circleDim, height: circleDim)
-                        .offset(y: -height * percent)
+                        .offset(y: -(height - circleDim) * percent)
                     
-                }
                 }
                     
             }
@@ -45,13 +51,22 @@ struct CalendarDatView: View {
 }
 
 #Preview {
-    CalendarDatView(
-        percent: 0.6,
-        isSelected: false,
-        height: 100,
-        day: "Mon",
-        amo0unt: 7,
-        offsetY: -5
-    )
-    .padding()
+    HStack(alignment: .bottom) {
+        CalendarDatView(
+            percent: 0.6,
+            isSelected: true,
+            height: 100,
+            day: "Mon",
+            amount: 7,
+            offsetY: -5
+        )
+        CalendarDatView(
+            percent: 0.6,
+            isSelected: false,
+            height: 100,
+            day: "Tues",
+            amount: 7,
+            offsetY: -5
+        )
+    }
 }
